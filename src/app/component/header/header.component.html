@@ -1,0 +1,26 @@
+<section class="header min-[500px]:h-[65vh] min-[770px]:h-[77vh] min-[1028px]:h-[100vh] w-full h-[100vh]">
+    <nav class="flex justify-between items-center px-6 pt-5">
+        <a href="" class="text-white text-[25px]">WorkBook</a>
+        <div class="group flex gap-5">
+            <i class="fa-solid fa-bag-shopping text-[30px] cursor-pointer text-white" pBadge value="1" severity="danger"
+                (click)="showBag()"></i>
+            <i class="toggleIcon {{icon}} text-[30px] cursor-pointer w-7 text-white" (click)="toggleIcon()"></i>
+        </div>
+    </nav>
+    <section class="flex justify-center items-center gap-2 flex-col h-[80%]">
+        <h1 class="text-[50px] text-white">BOOK'S</h1>
+        <h2 class="text-white text-[30px] font-light">MULTIPURPOSE STORE</h2>
+        <a routerLink=""
+            class="bg-slate-200 font-bold py-2 px-8 transition duration-150 ease-out hover:bg-slate-500 hover:text-white">SHOP
+            NOW</a>
+    </section>
+</section>
+
+<p-sidebar [(visible)]="sidebarVisible" [style]="{width:witdthBag}" position="right">
+    <ng-template pTemplate="header">
+        <h3 class="text-green-500">Shoping Cart</h3>
+    </ng-template>
+    <p-divider />
+    <ng-template pTemplate="content">Body Content</ng-template>
+    <ng-template pTemplate="footer">Footer Content</ng-template>
+</p-sidebar>

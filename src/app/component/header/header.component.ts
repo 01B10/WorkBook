@@ -1,10 +1,13 @@
-import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import {
-  BreakpointObserver,
-  BreakpointState,
-  MediaMatcher,
-  Breakpoints,
-} from '@angular/cdk/layout';
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 import { DOCUMENT } from '@angular/common';
 
@@ -14,33 +17,75 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
-  sidebarVisible: boolean = false;
+  sidebarVisible = false;
   witdthBag = '21.5rem';
   toggleMenu = false;
   icon = 'fa-solid fa-bars';
+  menuVisible = false;
+  @ViewChild('setBanner', { static: true }) banner!: ElementRef;
+  @ViewChild('titleBanner', { static: true }) titleBanner!: ElementRef;
   private document = inject(DOCUMENT);
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
+  ) {}
   ngOnInit(): void {
     this.breakpointObserver
       .observe(['(max-width:500px)', '(min-width:500px)', '(min-width:925px)'])
       .subscribe((state: BreakpointState) => {
         if (state.breakpoints['(max-width:500px)']) {
           this.witdthBag = '100%';
+          this.sidebarVisible = false;
+          this.menuVisible = false;
         } else if (state.breakpoints['(min-width:925px)']) {
           this.witdthBag = '21.5rem';
+          this.menuVisible = true;
         } else if (state.breakpoints['(min-width:500px)']) {
           this.witdthBag = '80%';
+          this.sidebarVisible = false;
+          this.menuVisible = false;
+          this.icon = 'fa-solid fa-bars';
         }
       });
   }
 
   ngAfterViewInit(): void {
+    this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+      url('assets/img/671822c2f63dd5f65d8fd15c9710420b.jpg')`;
+
+    this.titleBanner.nativeElement.innerHTML = `
+    <h1 class="text-[25px] min-[775px]:text-[50px] text-white">BOOK'S</h1>
+    <h2 class="text-white text-[15x] min-[775px]:text-[30px] font-light">MULTIPURPOSE STORE</h2>
+    <a routerLink=""
+        class="bg-slate-200 py-2 px-7 font-bold min-[775px]:py-3 min-[775px]:px-[70px] transition duration-150 ease-out hover:bg-slate-500 hover:text-white cursor-pointer">SHOP
+        NOW</a>`;
+
     this.document.addEventListener('click', (e: any) => {
       if (!e.target.closest('.toggleIcon')) {
         this.icon = 'fa-solid fa-bars';
         this.toggleMenu = false;
       }
     });
+    if (this.router.url === '/books') {
+      this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+      url('assets/img/Essential-Books.jpg')`;
+      this.titleBanner.nativeElement.innerHTML = `
+      <h1 class="text-[25px] min-[775px]:text-[50px] text-white">LIBRARY</h1>
+      <h2 class="text-white text-[15x] min-[775px]:text-[30px] font-light">Choose and read your favorite books!</h2>
+      <a routerLink=""
+          class="bg-slate-200 py-2 px-7 font-bold min-[775px]:py-3 min-[775px]:px-[70px] transition duration-150 ease-out hover:bg-slate-500 hover:text-white rounded-3xl cursor-pointer">EXPLORE
+      </a>`;
+    } else if (this.router.url === '/about') {
+      this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+      url('assets/img/Books_and_Library.jpeg')`;
+      this.titleBanner.nativeElement.innerHTML = `
+      <h1 class="text-[30px] min-[775px]:text-[65px] text-white">WHO ARE WHERE?</h1>`;
+    } else if (this.router.url === '/contact') {
+      this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+      url('assets/img/tmb_OurSalesContact-1200x628.jpg')`;
+      this.titleBanner.nativeElement.innerHTML = `
+    <h1 class="text-[25px] min-[775px]:text-[50px] text-white">CONTACT US</h1>`;
+    }
   }
 
   showBag() {
@@ -49,6 +94,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   toggleIcon() {
     this.toggleMenu = !this.toggleMenu;
+    this.menuVisible = !this.menuVisible;
     this.toggleMenu
       ? (this.icon = 'fa-solid fa-xmark')
       : (this.icon = 'fa-solid fa-bars');

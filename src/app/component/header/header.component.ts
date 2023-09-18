@@ -20,8 +20,12 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   sidebarVisible = false;
   witdthBag = '21.5rem';
   toggleMenu = false;
+  toggleSearch = false;
+  inputSearch = false;
   icon = 'fa-solid fa-bars';
   menuVisible = false;
+  breakPoint = false;
+  hiddenIconSearch = false;
   @ViewChild('setBanner', { static: true }) banner!: ElementRef;
   @ViewChild('titleBanner', { static: true }) titleBanner!: ElementRef;
   private document = inject(DOCUMENT);
@@ -31,20 +35,46 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   ) {}
   ngOnInit(): void {
     this.breakpointObserver
-      .observe(['(max-width:500px)', '(min-width:500px)', '(min-width:925px)'])
+      .observe([
+        '(max-width:500px)',
+        '(max-width:770px)',
+        '(max-width:925px)',
+        '(min-width:500px)',
+        '(min-width:925px)',
+      ])
       .subscribe((state: BreakpointState) => {
+        // if (state.breakpoints['(min-width:500px)']) {
+        //   console.log('kaak');
+
+        //   this.witdthBag = '100%';
+        //   this.sidebarVisible = false;
+        //   this.menuVisible = false;
+        //   this.toggleMenu = false;
+        //   this.inputSearch = false;
+        //   this.icon = 'fa-solid fa-bars';
+        // }
         if (state.breakpoints['(max-width:500px)']) {
           this.witdthBag = '100%';
           this.sidebarVisible = false;
           this.menuVisible = false;
+          this.toggleMenu = false;
+          this.breakPoint = true;
+          this.icon = 'fa-solid fa-bars';
+        } else if (state.breakpoints['(max-width:925px)']) {
+          this.witdthBag = '80%';
+          this.breakPoint = true;
+          this.sidebarVisible = false;
+          this.menuVisible = false;
+          this.toggleMenu = false;
+          this.toggleSearch = false;
+          this.inputSearch = false;
+          this.icon = 'fa-solid fa-bars';
         } else if (state.breakpoints['(min-width:925px)']) {
           this.witdthBag = '21.5rem';
           this.menuVisible = true;
-        } else if (state.breakpoints['(min-width:500px)']) {
-          this.witdthBag = '80%';
-          this.sidebarVisible = false;
-          this.menuVisible = false;
-          this.icon = 'fa-solid fa-bars';
+          this.breakPoint = false;
+          this.toggleSearch = false;
+          this.inputSearch = false;
         }
       });
   }
@@ -61,10 +91,23 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         NOW</a>`;
 
     this.document.addEventListener('click', (e: any) => {
-      if (!e.target.closest('.toggleIcon')) {
+      if (e.target.closest('.fa-xmark')) {
+        return;
+      }
+      if (!e.target.closest('.toggleIcon') && this.breakPoint) {
         this.icon = 'fa-solid fa-bars';
         this.toggleMenu = false;
+        this.menuVisible = false;
       }
+    });
+    this.document.addEventListener('scroll', () => {
+      if (this.breakPoint) {
+        this.icon = 'fa-solid fa-bars';
+        this.toggleMenu = false;
+        this.menuVisible = false;
+      }
+
+      // this.inputSearch = false;
     });
     if (this.router.url === '/books') {
       this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
@@ -75,6 +118,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       <a routerLink=""
           class="bg-slate-200 py-2 px-7 font-bold min-[775px]:py-3 min-[775px]:px-[70px] transition duration-150 ease-out hover:bg-slate-500 hover:text-white rounded-3xl cursor-pointer">EXPLORE
       </a>`;
+      this.hiddenIconSearch = true;
     } else if (this.router.url === '/about') {
       this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
       url('assets/img/Books_and_Library.jpeg')`;
@@ -92,11 +136,36 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.sidebarVisible = !this.sidebarVisible;
   }
 
-  toggleIcon() {
+  toggleIconMenu() {
     this.toggleMenu = !this.toggleMenu;
     this.menuVisible = !this.menuVisible;
     this.toggleMenu
       ? (this.icon = 'fa-solid fa-xmark')
       : (this.icon = 'fa-solid fa-bars');
+  }
+
+  toggleIconSearch() {
+    this.breakpointObserver
+      .observe(['(max-width:770px)'])
+      .subscribe((state: BreakpointState) => {
+        if (!state.breakpoints['(max-width:770px)']) {
+          this.toggleSearch = true;
+          this.menuVisible = false;
+        } else {
+          this.toggleSearch = false;
+          this.inputSearch = !this.inputSearch;
+        }
+      })
+      .unsubscribe();
+  }
+
+  toggleIconX() {
+    this.toggleSearch = false;
+    this.inputSearch = false;
+    if (this.breakPoint) {
+      this.menuVisible = false;
+    } else {
+      this.menuVisible = true;
+    }
   }
 }

@@ -1,0 +1,60 @@
+:host ::ng-deep .p-tabmenu-nav {
+  display: inline-flex;
+  background-color: transparent;
+}
+
+:host ::ng-deep .p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link {
+  background-color: transparent;
+  border-width: 0 0 5px 0;
+}
+
+.boxInfor::before {
+  content: "";
+  position: absolute;
+  border-radius: 6px;
+  border: 2px solid white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 235px;
+  height: 135px;
+}
+
+.background {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+    url("../../../../assets/img/Number-of-Books-Published-Per-Year.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+}
+
+.imgFigure {
+  position: relative;
+  display: inline-block;
+}
+
+.animationInfor {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.imgFigure:hover .animationInfor {
+  background-color: rgba(0, 0, 0, 0.7);
+  visibility: visible;
+  opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+  .imgFigure {
+    width: 200px;
+    .nameBook {
+      font-size: 20px;
+    }
+    .author {
+      font-size: 15px;
+    }
+  }
+}

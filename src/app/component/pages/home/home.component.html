@@ -1,6 +1,6 @@
 <section class="my-10">
     <h1 class="text-center text-[40px]">Welcome to WorkBook</h1>
-    <section class="flex flex-wrap justify-center items-center gap-4 mb-7">
+    <section class="flex flex-wrap justify-center items-center gap-4">
         <div
             class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#075985] rounded-md relative">
             <i class="fa-solid fa-book text-[25px] mb-2"></i>
@@ -21,7 +21,7 @@
         </div>
     </section>
 
-    <section class="background">
+    <section class="background my-10">
         <section class="text-center mb-3">
             <p-tabMenu [model]="items" [activeItem]="activeItem"
                 (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
@@ -29,13 +29,13 @@
 
         <main [ngSwitch]="tab">
             <section *ngSwitchCase="'New Books'" class="flex justify-center gap-3 flex-wrap">
-                <figure class="imgFigure cursor-pointer">
+                <figure class="imgFigure">
                     <img src="assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
                     <div class="animationInfor flex flex-col justify-center items-center text-white">
                         <h3 class="nameBook text-[30px]">The Winning Story</h3>
                         <h3 class="author text-[20px] underline">Alex sando</h3>
                         <span>* * * * *</span>
-                        <h3>1200vnd</h3>
+                        <h3 class="mb-2">1200vnd</h3>
                         <button class="w-[150px] h-10 rounded-3xl border-[2px] border-solid active:bg-black mb-3">Add
                             To Cart</button>
                         <a href="" class="hover:underline">Read more</a>
@@ -96,6 +96,88 @@
             </section>
         </main>
     </section>
-
+    <section class="my-10">
+        <h1 class="text-center font-bold text-[30px] max-[500px]:text-[20px]">
+            Most Popular Books
+        </h1>
+        <div class="line">
+            <i class="fa fa-book"></i>
+        </div>
+        <p class="text-center text-[#666666] font-thin">The Most Popular Books Today are
+            available
+            in Book
+            Library
+        </p>
+        <section class="flex justify-center items-start max-[1156px]:flex-wrap-reverse  max-[1156px]:gap-3 mt-10 px-10">
+            <div class="rallyE max-w-[558px]">
+                <div #imgLarge
+                    class="contentBook flex justify-between gap-2 border-[1px] border-solid border-[#ccc] p-3"
+                    *ngFor="let book of popularListBook">
+                    <figure class="flex-2 shrink w-[247px] h-[418px]">
+                        <img class="w-full h-full object-cover" src={{book.img}} alt="">
+                    </figure>
+                    <div class="flex-1 shrink">
+                        <h3 class="font-bold text-[18px]">ENGAGING IMAGINATION</h3>
+                        <h4 class="font-bold">Gillian Judson</h4>
+                        <span>******</span>
+                        <span>{{book.content}}</span>
+                        <p class="inforText text-[#666666] text-[15px] font-thin">
+                            When asked what they want colleges to emphasize most, employers didn’t put science,
+                            computing,
+                            math, or business management first. According to 2013 employer survey, 95% of employers give
+                            hiring preference to college graduates with skills that will enable them to contribute to
+                            innovation in the workplace. that will enable them to contribute to innovation in the
+                            workplace
+                            in the city town of the lost vallies.
+                        </p>
+                        <div class="flex mt-6 justify-between">
+                            <div class="price font-bold">245</div>
+                            <a href="" class="hover:underline font-bold">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center items-start flex-wrap gap-3">
+                <figure #imgSmall
+                    class="imgSmall inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]"
+                    *ngFor="let book of popularListBook" data-id={{book.id}}>
+                    <img src={{book.img}} alt="">
+                </figure>
+                <!-- <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure>
+                <figure #imgSmall
+                    class="inline-block max-w-[151px] p-1 border-[1px] border-solid border-[#ccc] cursor-pointer hover:bg-[#e2e8f0]">
+                    <img src=" assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
+                </figure> -->
+            </div>
+        </section>
+    </section>
     <app-book />
+
 </section>

@@ -7,6 +7,7 @@ import { DividerModule } from 'primeng/divider';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
+import { AutoFocusModule } from 'primeng/autofocus';
 
 const PremengComponent = [
   BadgeModule,
@@ -17,6 +18,7 @@ const PremengComponent = [
   TabMenuModule,
   TabViewModule,
   InputTextModule,
+  AutoFocusModule,
 ];
 
 @NgModule({

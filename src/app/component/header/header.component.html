@@ -7,8 +7,8 @@
             <span class="p-input-icon-left p-input-icon-right w-[90%] max-[770px]:w-[80%]">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-solid fa-xmark cursor-pointer" (click)="toggleIconX()"></i>
-                <input type="text" class="p-inputtext-sm h-8 outline-none w-full"
-                    placeholder="Search Book, Author, Category..." pInputText />
+                <input type="text" class="p-inputtext-sm h-8 outline-none w-full" pInputText pAutoFocus
+                    [autocomplete]="false" [autofocus]="true" placeholder="Search Book, Author, Category..." />
             </span>
         </form>
         <div class="group flex items-center gap-5">

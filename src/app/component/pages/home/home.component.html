@@ -1,35 +1,41 @@
-<section class="my-10">
-    <h1 class="text-center text-[40px]">Welcome to WorkBook</h1>
-    <section class="flex flex-wrap justify-center items-center gap-4">
-        <div
-            class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#075985] rounded-md relative">
-            <i class="fa-solid fa-book text-[25px] mb-2"></i>
-            <h3>Books we have</h3>
-            <h3>100000</h3>
-        </div>
-        <div
-            class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#86198f] rounded-md relative">
-            <i class="fa-regular fa-user text-[25px] mb-2"></i>
-            <h3>Total Users</h3>
-            <h3>100000</h3>
-        </div>
-        <div
-            class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#9d174d] rounded-md relative">
-            <i class="fa-regular fa-heart text-[25px] mb-2"></i>
-            <h3>Happy Users</h3>
-            <h3>100000</h3>
-        </div>
+<section class="my-10 relative">
+    <section class="bg-white pb-12">
+        <h1 class="text-center text-[40px]">Welcome to WorkBook</h1>
+        <section class="flex flex-wrap justify-center items-center gap-4">
+            <div
+                class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#075985] rounded-md relative">
+                <i class="fa-solid fa-book text-[25px] mb-2"></i>
+                <h3>Books we have</h3>
+                <h3>100000</h3>
+            </div>
+            <div
+                class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#86198f] rounded-md relative">
+                <i class="fa-regular fa-user text-[25px] mb-2"></i>
+                <h3>Total Users</h3>
+                <h3>100000</h3>
+            </div>
+            <div
+                class="boxInfor text-white flex flex-col justify-center items-center w-[250px] h-[150px] bg-[#9d174d] rounded-md relative">
+                <i class="fa-regular fa-heart text-[25px] mb-2"></i>
+                <h3>Happy Users</h3>
+                <h3>100000</h3>
+            </div>
+        </section>
     </section>
 
-    <section class="background my-10">
+    <section>
+        <!-- <div class="background"></div> -->
+        <!-- <img class="fixed left-0 right-0 w-full h-[100vh] z-99" src="../../../../assets/img/Books_and_Library.jpeg"
+            alt=""> -->
         <section class="text-center mb-3">
             <p-tabMenu [model]="items" [activeItem]="activeItem"
                 (activeItemChange)="onActiveItemChange($event)"></p-tabMenu>
         </section>
 
         <main [ngSwitch]="tab">
-            <section *ngSwitchCase="'New Books'" class="flex justify-center gap-3 flex-wrap">
-                <figure class="imgFigure">
+            <section *ngSwitchCase="'New Books'"
+                class="flex justify-center gap-3 max-w-[1250px] flex-wrap background mx-auto py-2 rounded">
+                <figure class=" imgFigure">
                     <img src="assets/img/author-book-store-book-cover-06-300x450.jpg" alt="">
                     <div class="animationInfor flex flex-col justify-center items-center text-white">
                         <h3 class="nameBook text-[30px]">The Winning Story</h3>
@@ -87,7 +93,8 @@
                     </div>
                 </figure>
             </section>
-            <section *ngSwitchCase="'On Sale'">
+            <section *ngSwitchCase="'On Sale'"
+                class="flex justify-center gap-3 max-w-[1237px] flex-wrap background mx-auto">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi, similique, consequuntur ipsum commodi
                 ipsa
                 autem laboriosam neque omnis nihil hic, quasi necessitatibus adipisci doloribus molestiae. Possimus
@@ -96,12 +103,12 @@
             </section>
         </main>
     </section>
-    <section class="my-10">
-        <h1 class="text-center font-bold text-[30px] max-[500px]:text-[20px]">
+    <section class="pt-5 pb-4 bg-white">
+        <h1 class=" text-center font-bold text-[30px] max-[500px]:text-[20px]">
             Most Popular Books
         </h1>
         <div class="line">
-            <i class="fa fa-book"></i>
+            <i class=" fa fa-book"></i>
         </div>
         <p class="text-center text-[#666666] font-thin">The Most Popular Books Today are
             available

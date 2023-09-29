@@ -1,12 +1,17 @@
 .header {
-  // width: 100%;
-  // min-height: 100vh;
-  // background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
-  //   url("../../../assets/img/671822c2f63dd5f65d8fd15c9710420b.jpg");
   background-size: cover;
-  position: relative;
   background-position: center;
-  // background-color: aqua;
+  background-repeat: no-repeat;
+  display: table;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100%;
+}
+
+.test {
+  background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+    url("../../../assets/img/Number-of-Books-Published-Per-Year.jpg");
+  //   background-size: cover;
 }
 
 .ng-trigger {

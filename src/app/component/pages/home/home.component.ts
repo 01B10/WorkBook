@@ -96,6 +96,5 @@ export class HomeComponent implements OnInit, AfterViewInit {
   onActiveItemChange(event: MenuItem) {
     this.activeItem = event;
     this.tab = event.label;
-    console.log(event.label);
   }
 }

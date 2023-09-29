@@ -110,8 +110,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       // this.inputSearch = false;
     });
     if (this.router.url === '/books') {
-      console.log('kaka');
-
       this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
       url('assets/img/Essential-Books.jpg')`;
       this.titleBanner.nativeElement.innerHTML = `

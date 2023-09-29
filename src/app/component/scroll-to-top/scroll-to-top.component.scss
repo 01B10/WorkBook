@@ -1,0 +1,14 @@
+.scroll {
+  opacity: 0;
+  transition: opacity 0.3s linear;
+}
+
+.scroll.active {
+  opacity: 1;
+  transition: opacity 0.5s linear;
+}
+
+.scroll:hover {
+  background-color: aqua;
+  transition: 0.2s ease-in;
+}

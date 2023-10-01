@@ -1,0 +1,95 @@
+.price-input {
+  width: 100%;
+  display: flex;
+  margin: 30px 0 35px;
+}
+
+.price-input .field {
+  height: 45px;
+  width: 100%;
+  align-items: center;
+  display: flex;
+}
+
+.field input {
+  width: 100%;
+  height: 100%;
+  font-size: 19px;
+  outline: none;
+  margin-left: 12px;
+  border-radius: 5px;
+  border: 1px solid #999;
+  padding: 5px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+.slider {
+  height: 5px;
+  border-radius: 5px;
+  background-color: #ddd;
+}
+
+.slider .progress {
+  position: absolute;
+  height: 5px;
+  left: 25%;
+  right: 25%;
+  background: #000000;
+}
+
+.range-input {
+  position: relative;
+}
+
+.range-input input {
+  position: absolute;
+  top: -5px;
+  height: 5px;
+  width: 100%;
+  appearance: none;
+  background: none;
+  pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  appearance: none;
+  pointer-events: auto;
+  cursor: pointer;
+  background: #74a84a;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: black;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  pointer-events: auto;
+  -moz-appearance: none;
+  background: #17a2b8;
+}
+
+:host ::ng-deep .p-breadcrumb {
+  border: none;
+}
+
+.book-item > .bg-Cart {
+  top: 10px;
+  right: 0;
+  transform: translateX(60px);
+  box-shadow: 0 5px 5px 0;
+  transition: transform 0.3s ease-in;
+}
+
+.book-item:hover > .bg-Cart {
+  transform: translateX(-3px);
+}

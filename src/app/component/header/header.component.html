@@ -14,14 +14,17 @@
         <div class="group flex items-center gap-5">
             <ul class="text-white text-[19px] min-[925px]:flex max-[925px]:absolute max-[925px]:bg-black max-[925px]:text-white max-[925px]:top-full max-[925px]:left-0 max-[925px]:right-0 max-[925px]:opacity-[90%]"
                 *ngIf="menuVisible">
-                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" href="">Home</a></li>
-                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" href="/books">Books</a></li>
-                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" href="/about">About</a></li>
-                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" href="/contact">Contact</a>
+                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" routerLink="">Home</a></li>
+                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" routerLink="/books">Books</a>
+                </li>
+                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none" routerLink="/about">About</a>
+                </li>
+                <li><a class="p-5 block hover:bg-slate-200 hover:text-black select-none"
+                        routerLink="/contact">Contact</a>
                 </li>
             </ul>
 
-            <i class="fa-solid fa-magnifying-glass text-white text-[20px] cursor-pointer"
+            <i class="{{hiddenSearch ? 'hiddenSearch':''}} fa-solid fa-magnifying-glass text-white text-[20px] cursor-pointer"
                 [ngClass]="toggleSearch?'toggleSearch':''" (click)="toggleIconSearch()"></i>
             <i class="fa-solid fa-bag-shopping text-[30px] cursor-pointer text-white" pBadge value="1" severity="danger"
                 (click)="showBag()"></i>

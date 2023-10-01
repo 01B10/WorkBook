@@ -8,12 +8,6 @@
   width: 100%;
 }
 
-.test {
-  background-image: linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
-    url("../../../assets/img/Number-of-Books-Published-Per-Year.jpg");
-  //   background-size: cover;
-}
-
 .ng-trigger {
   background-color: aqua;
 }
@@ -21,6 +15,11 @@
 .toggleSearch {
   display: none;
 }
+
+.hiddenSearch {
+  visibility: hidden;
+}
+
 // .header header {
 //   position: absolute;
 //   right: 0;

@@ -8,6 +8,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import { TabViewModule } from 'primeng/tabview';
 import { InputTextModule } from 'primeng/inputtext';
 import { AutoFocusModule } from 'primeng/autofocus';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { DropdownModule } from 'primeng/dropdown';
 
 const PremengComponent = [
   BadgeModule,
@@ -19,6 +22,9 @@ const PremengComponent = [
   TabViewModule,
   InputTextModule,
   AutoFocusModule,
+  InputNumberModule,
+  BreadcrumbModule,
+  DropdownModule,
 ];
 
 @NgModule({

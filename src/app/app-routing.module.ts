@@ -14,6 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        title: 'home',
         component: HomeComponent,
       },
       {

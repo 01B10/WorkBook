@@ -1,8 +1,12 @@
 import {
+  AfterViewChecked,
   AfterViewInit,
   Component,
+  DoCheck,
   ElementRef,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   ViewChild,
   inject,
 } from '@angular/core';
@@ -16,7 +20,9 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit, AfterViewInit {
+export class HeaderComponent
+  implements OnInit, AfterViewInit, AfterViewChecked, DoCheck
+{
   sidebarVisible = false;
   witdthBag = '21.5rem';
   toggleMenu = false;
@@ -26,6 +32,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   menuVisible = false;
   breakPoint = false;
   hiddenIconSearch = false;
+  hiddenSearch = false;
   @ViewChild('setBanner', { static: true }) banner!: ElementRef;
   @ViewChild('titleBanner', { static: true }) titleBanner!: ElementRef;
   private document = inject(DOCUMENT);
@@ -33,6 +40,11 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     private breakpointObserver: BreakpointObserver,
     private router: Router
   ) {}
+  ngDoCheck(): void {
+    this.router.url === '/books'
+      ? (this.hiddenSearch = true)
+      : (this.hiddenSearch = false);
+  }
   ngOnInit(): void {
     this.breakpointObserver
       .observe([
@@ -80,16 +92,6 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
-      url('assets/img/671822c2f63dd5f65d8fd15c9710420b.jpg')`;
-
-    this.titleBanner.nativeElement.innerHTML = `
-    <h1 class="text-[25px] min-[775px]:text-[50px] text-white">BOOK'S</h1>
-    <h2 class="text-white text-[15x] min-[775px]:text-[30px] font-light">MULTIPURPOSE STORE</h2>
-    <a routerLink=""
-        class="bg-slate-200 py-2 px-7 font-bold min-[775px]:py-3 min-[775px]:px-[70px] transition duration-150 ease-out hover:bg-slate-500 hover:text-white cursor-pointer">SHOP
-        NOW</a>`;
-
     this.document.addEventListener('click', (e: any) => {
       if (e.target.closest('.fa-xmark')) {
         return;
@@ -106,10 +108,21 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         this.toggleMenu = false;
         this.menuVisible = false;
       }
-
-      // this.inputSearch = false;
     });
+  }
+
+  ngAfterViewChecked(): void {
+    this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
+    url('assets/img/671822c2f63dd5f65d8fd15c9710420b.jpg')`;
+
+    this.titleBanner.nativeElement.innerHTML = `
+  <h1 class="text-[25px] min-[775px]:text-[50px] text-white">BOOK'S</h1>
+  <h2 class="text-white text-[15x] min-[775px]:text-[30px] font-light">MULTIPURPOSE STORE</h2>
+  <a routerLink=""
+      class="bg-slate-200 py-2 px-7 font-bold min-[775px]:py-3 min-[775px]:px-[70px] transition duration-150 ease-out hover:bg-slate-500 hover:text-white cursor-pointer">SHOP
+      NOW</a>`;
     if (this.router.url === '/books') {
+      this.hiddenSearch = true;
       this.banner.nativeElement.style.backgroundImage = `linear-gradient(rgba(4, 9, 30, 0.6), rgba(4, 9, 30, 0.6)),
       url('assets/img/Essential-Books.jpg')`;
       this.titleBanner.nativeElement.innerHTML = `

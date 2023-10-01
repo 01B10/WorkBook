@@ -1,1 +1,99 @@
-<p>books works!</p>
+<app-breadcrumb />
+<main class="mx-auto my-9 flex justify-center px-8 max-[920px]:flex-col">
+    <section
+        class="flex flex-col gap-10 items-end flex-2 pr-12 border-r border-[#d9d9d9] max-[920px]:p-0 max-[920px]:border-none">
+        <form action="" class="w-full flex justify-between items-center gap-2">
+            <input type="text" name="" id=""
+                class="outline-none border-[1px] border-solid border-gray-300 h-[40px] w-full px-1"
+                placeholder="Search product..." />
+            <button type="submit" class="h-[40px] w-[50px] bg-[#74a84a] text-white hover:bg-[#2c541d]">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+        </form>
+
+        <div class="relative w-[300px]">
+            <h2 class="text-[#74a84a] font-bold text-[20px] mb-4">Filter by price</h2>
+            <div class="slider">
+                <div class="progress"></div>
+            </div>
+            <div class="range-input">
+                <input type="range" class="range-min" min="0" step="1" max="10000" value="2500">
+                <input type="range" class="range-max" min="0" step="1" max="10000" value="7500">
+            </div>
+            <div class="price-input">
+                <div class="field">
+                    <input type="number" class="input-min" value="2500">
+                </div>
+                <div class="field">
+                    <input type="number" class="input-max" value="7500">
+                </div>
+            </div>
+            <button
+                class="bg-[#74a84a] py-3 px-5 font-medium text-white float-right hover:bg-[#2c541d] rounded-sm">Reset</button>
+        </div>
+        <div class="categories self-start">
+            <h3 class="text-[#74a84a] text-[20px] font-bold">Categories</h3>
+            <div class="text-[#74a84a] indent-3">PostCards <span class="text-black">(6)</span></div>
+            <div class="text-[#74a84a] indent-3">PostCards <span class="text-black">(6)</span></div>
+        </div>
+        <div class="recently self-start">
+            <h3 class="text-[#74a84a] text-[20px] font-bold mb-4">Recently Viewed</h3>
+            <div class="divide-y flex flex-col">
+                <div class="flex gap-3 py-2">
+                    <figure class="w-[70px]">
+                        <img src="https://websitedemos.net/earth-store-02/wp-content/uploads/sites/1171/2022/11/Postcard1-1000x1000.jpg"
+                            alt="">
+                    </figure>
+                    <div class="infor">
+                        <h4 class="text-[#74a84a]">Postcard v1</h4>
+                        <p class="text-[#585858]">23.99</p>
+                    </div>
+                </div>
+                <div class="flex gap-3 py-2">
+                    <figure class="w-[70px]">
+                        <img src="https://websitedemos.net/earth-store-02/wp-content/uploads/sites/1171/2022/11/Postcard1-1000x1000.jpg"
+                            alt="">
+                    </figure>
+                    <div class="infor">
+                        <h4 class="text-[#74a84a]">Postcard v1</h4>
+                        <p class="text-[#585858]">23.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="flex-1 pl-12 max-[920px]:pl-0">
+        <h1 class="text-[#74a84a] text-[60px]">Books</h1>
+        <div class="flex justify-between items-center mb-6">
+            <p class="text-[#585858]">Showing all 12 results</p>
+            <p-dropdown [options]="sorting" optionLabel="name" [(ngModel)]="selected"></p-dropdown>
+        </div>
+        <div class="books flex flex-wrap">
+            <div class="border-[2px] p-3 rounded-lg hover:bg-gray-100">
+                <figure class="w-[253px] relative overflow-hidden book-item">
+                    <a href="">
+                        <img src="https://websitedemos.net/earth-store-02/wp-content/uploads/sites/1171/2022/11/Postcard1-1000x1000.jpg"
+                            alt="">
+                    </a>
+                    <div
+                        class="bg-Cart bg-white inline-flex p-2 rounded-[50%] justify-center items-center cursor-pointer absolute">
+                        <i class="fa-solid fa-cart-plus text-[#74a84a]"></i>
+                    </div>
+                </figure>
+                <a href="">
+                    <span class="text-[#585858]">Category</span>
+                </a>
+                <a href="">
+                    <h4 class="font-medium text-center">Postcard V1</h4>
+                </a>
+                <a href="">
+                    <h4 class="font-bold text-center">Author V1</h4>
+                </a>
+                <div class="flex justify-between items-center">
+                    <h5 class="text-[#585858] font-bold">23.99</h5>
+                    *****
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

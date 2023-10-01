@@ -15,6 +15,8 @@ import { AboutComponent } from './component/pages/about/about.component';
 import { BookComponent } from './component/book/book.component';
 import { PageNotFoundComponent } from './component/pages/page-not-found/page-not-found.component';
 import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.component';
+import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,12 +31,14 @@ import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.co
     BookComponent,
     PageNotFoundComponent,
     ScrollToTopComponent,
+    BreadcrumbComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     PremengModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

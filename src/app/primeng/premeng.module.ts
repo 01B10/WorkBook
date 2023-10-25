@@ -11,6 +11,10 @@ import { AutoFocusModule } from 'primeng/autofocus';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { DropdownModule } from 'primeng/dropdown';
+import { PanelMenuModule } from 'primeng/panelmenu';
+import { MegaMenuModule } from 'primeng/megamenu';
+import { MenubarModule } from 'primeng/menubar';
+import { MenuModule } from 'primeng/menu';
 
 const PremengComponent = [
   BadgeModule,
@@ -25,6 +29,10 @@ const PremengComponent = [
   InputNumberModule,
   BreadcrumbModule,
   DropdownModule,
+  PanelMenuModule,
+  MegaMenuModule,
+  MenubarModule,
+  MenuModule
 ];
 
 @NgModule({

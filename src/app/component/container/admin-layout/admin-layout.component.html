@@ -1,0 +1,11 @@
+<div class="w-full m-auto bg-blue-50 h-screen bg-cover">
+  <app-topbar />
+  <div class="grid grid-cols-[1fr,4fr] mt-3 ml-4">
+    <app-side-bar class="py-4 pl-4" />
+    <main
+      class="bg-white bg-cover mt-4 border border-gray-300 rounded-[15px] h-[80vh] mr-6 p-5"
+    >
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

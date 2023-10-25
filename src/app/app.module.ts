@@ -17,6 +17,12 @@ import { PageNotFoundComponent } from './component/pages/page-not-found/page-not
 import { ScrollToTopComponent } from './component/scroll-to-top/scroll-to-top.component';
 import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
 import { FormsModule } from '@angular/forms';
+import { AdminLayoutComponent } from './component/container/admin-layout/admin-layout.component';
+import { SideBarComponent } from './admin/side-bar/side-bar.component';
+import { TopbarComponent } from './admin/topbar/topbar.component';
+import { ManagerProductComponent } from './admin/pages/manager-product/manager-product.component';
+import { ManagerCategoryComponent } from './admin/pages/manager-category/manager-category.component';
+import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +38,12 @@ import { FormsModule } from '@angular/forms';
     PageNotFoundComponent,
     ScrollToTopComponent,
     BreadcrumbComponent,
+    AdminLayoutComponent,
+    SideBarComponent,
+    TopbarComponent,
+    ManagerProductComponent,
+    ManagerCategoryComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,10 @@ import { AboutComponent } from './component/pages/about/about.component';
 import { ContactComponent } from './component/pages/contact/contact.component';
 import { HomeComponent } from './component/pages/home/home.component';
 import { PageNotFoundComponent } from './component/pages/page-not-found/page-not-found.component';
+import { AdminLayoutComponent } from './component/container/admin-layout/admin-layout.component';
+import { DashboardComponent } from './admin/pages/dashboard/dashboard.component';
+import { ManagerProductComponent } from './admin/pages/manager-product/manager-product.component';
+import { ManagerCategoryComponent } from './admin/pages/manager-category/manager-category.component';
 
 const routes: Routes = [
   {
@@ -32,6 +36,17 @@ const routes: Routes = [
         title: 'contact',
         component: ContactComponent,
       },
+    ],
+  },
+  {
+    path: 'admin',
+    title: 'admin',
+    component: AdminLayoutComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'products', component: ManagerProductComponent },
+      { path: 'category', component: ManagerCategoryComponent },
     ],
   },
   {
